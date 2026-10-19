@@ -150,7 +150,7 @@ class TestTeslaFingerprint(unittest.TestCase):
     self.assertFalse(cp.safetyConfigs[0].safetyParam & TeslaSafetyFlags.FSD_14)
 
     tesla_can = TeslaCAN(cp, CANPacker("tesla_model3_party"))
-    _, steering_control, _ = tesla_can.create_steering_control(0.0, True)
+    _, steering_control, _ = tesla_can.create_steering_control(0.0, True, 1)
     self.assertEqual(1, steering_control[2] >> 6)
 
   def test_radar_detection(self):
